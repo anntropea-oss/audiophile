@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Broadcast-Ready Audio Batch Mastering</title>
+    <link rel="stylesheet" href="styles.css?v=punk-v1" />
+    <link rel="icon" href="build/icon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+    <div class="page">
+      <header class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">AudioPhile</p>
+          <h1>Batch Master for Broadcast-Ready Audio</h1>
+          <p class="subtitle">
+            Drop a folder of raw audio, standardize levels, and apply a gentle mastering
+            chain for clean, edit-ready files.
+          </p>
+        </div>
+        <div class="hero-graphic" aria-hidden="true">
+          <svg viewBox="0 0 520 220" role="img">
+            <defs>
+              <linearGradient id="waveGradient" x1="0" x2="1">
+                <stop offset="0%" stop-color="#e31b2d" />
+                <stop offset="60%" stop-color="#f2f2f2" />
+                <stop offset="100%" stop-color="#ffffff" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="520" height="220" fill="#f7f7f7" />
+            <polyline
+              points="12,120 40,70 60,155 90,60 120,170 150,80 180,150 210,55 240,165 270,70 300,150 330,60 360,175 390,85 420,150 450,60 480,170 508,120"
+              fill="none"
+              stroke="url(#waveGradient)"
+              stroke-width="7"
+              stroke-linejoin="miter"
+            />
+            <g fill="#e31b2d" opacity="0.85">
+              <rect x="34" y="38" width="14" height="96" />
+              <rect x="66" y="28" width="14" height="126" />
+              <rect x="98" y="56" width="14" height="80" />
+              <rect x="130" y="18" width="14" height="152" />
+              <rect x="162" y="48" width="14" height="104" />
+            </g>
+            <g fill="#1b1b1b" opacity="0.9">
+              <rect x="330" y="38" width="14" height="96" />
+              <rect x="362" y="28" width="14" height="126" />
+              <rect x="394" y="56" width="14" height="80" />
+              <rect x="426" y="18" width="14" height="152" />
+              <rect x="458" y="48" width="14" height="104" />
+            </g>
+          </svg>
+        </div>
+        <div class="hero-card">
+          <div class="card-label">Quick Start</div>
+          <ol class="steps">
+            <li>Select a folder or file batch.</li>
+            <li>Pick a target level and mastering style.</li>
+            <li>Process and download clean WAVs.</li>
+          </ol>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel">
+          <h2>Source</h2>
+          <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-describedby="dropzoneHelp">
+            <input
+              type="file"
+              id="folderInput"
+              directory
+              webkitdirectory
+              mozdirectory
+              msdirectory
+              odirectory
+              multiple
+              accept="audio/*"
+            />
+            <input type="file" id="fileInput" multiple accept="audio/*" />
+            <div class="dropzone-text">
+              <p class="drop-title">Choose a folder of raw audio</p>
+              <p class="drop-subtitle">WAV, AIFF, MP3, M4A supported</p>
+              <p class="drop-subtitle" id="dropzoneHelp">
+                Files stay in your browser. Nothing is uploaded.
+              </p>
+              <div class="actions">
+                <button class="ghost-btn" id="browseBtn" type="button">Browse Folder</button>
+                <button class="ghost-btn" id="browseFilesBtn" type="button">Select Files</button>
+              </div>
+            </div>
+          </div>
+          <div class="summary">
+            <div>
+              <p class="label">Files loaded</p>
+              <p class="value" id="fileCount">0</p>
+            </div>
+            <div>
+              <p class="label">Sample rate</p>
+              <p class="value" id="sampleRate">-</p>
+            </div>
+            <div>
+              <p class="label">Status</p>
+              <p class="value" id="status" role="status" aria-live="polite">Waiting</p>
+            </div>
+          </div>
+          <div class="status-strip">
+            <div class="status-item">
+              <span class="status-label">Server</span>
+              <span class="badge" id="serverStatus">Unknown</span>
+            </div>
+            <div class="status-item">
+              <span class="status-label">FFmpeg</span>
+              <span class="badge" id="ffmpegBadge">Idle</span>
+            </div>
+            <div class="status-item">
+              <span class="status-label">Batch</span>
+              <span class="badge" id="batchStatus">Idle</span>
+            </div>
+          </div>
+          <div class="progress-wrap">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              id="progressBar"
+            >
+              <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            <span class="progress-text" id="progressText">0%</span>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Mastering Settings</h2>
+          <div class="settings-grid">
+            <label class="field">
+              <span>Normalization mode</span>
+              <select id="normMode">
+                <option value="peak" selected>Peak normalize (dBFS)</option>
+                <option value="rms">RMS normalize (dB)</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Target level</span>
+              <input type="number" id="targetDb" value="-1.0" step="0.1" />
+            </label>
+            <label class="field">
+              <span>High-pass filter</span>
+              <input type="number" id="hpFreq" value="60" step="1" />
+            </label>
+            <label class="field">
+              <span>Compressor threshold</span>
+              <input type="number" id="compThreshold" value="-24" step="1" />
+            </label>
+            <label class="field">
+              <span>Compressor ratio</span>
+              <input type="number" id="compRatio" value="3" step="0.1" />
+            </label>
+            <label class="field">
+              <span>Limiter ceiling</span>
+              <input type="number" id="limiterCeiling" value="-1.0" step="0.1" />
+            </label>
+            <label class="field">
+              <span>Export MP3</span>
+              <select id="mp3Export">
+                <option value="on" selected>On</option>
+                <option value="off">Off</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>MP3 bitrate</span>
+              <select id="mp3Bitrate">
+                <option value="192k">192 kbps</option>
+                <option value="256k" selected>256 kbps</option>
+                <option value="320k">320 kbps</option>
+              </select>
+            </label>
+          </div>
+          <div class="note">
+            This chain follows common mastering practice: clean low-end, gentle compression,
+            and a limiter to keep peaks controlled. For true loudness standards, finish in a DAW.
+          </div>
+          <div class="actions">
+            <button class="primary-btn" id="processBtn" type="button">Process Folder</button>
+            <button class="ghost-btn" id="clearBtn" type="button">Clear</button>
+          </div>
+          <div class="status-line" id="ffmpegStatus">FFmpeg: idle</div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Processed Files</h2>
+            <span class="pill" id="progress">0 / 0</span>
+          </div>
+          <div class="file-list" id="fileList">
+            <p class="empty">No files yet. Add a folder to get started.</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Live Console</h2>
+            <button class="ghost-btn" id="clearLogBtn" type="button">Clear Log</button>
+          </div>
+          <div class="log-box" id="logBox"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

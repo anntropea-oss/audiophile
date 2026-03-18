@@ -1,0 +1,51 @@
+{
+  "name": "audiophile",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "electron": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "electron-updater": "^6.3.0",
+    "express": "^4.19.2",
+    "multer": "^2.0.0"
+  },
+  "devDependencies": {
+    "electron": "^32.2.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.audiophile.app",
+    "productName": "AudioPhile",
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "files": [
+      "**/*"
+    ],
+    "asarUnpack": [
+      "node_modules/@ffmpeg-installer/ffmpeg/**",
+      "node_modules/@ffmpeg-installer/darwin-arm64/**"
+    ],
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icon.icns",
+      "category": "public.app-category.music",
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "gatekeeperAssess": false
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://your-domain.com/downloads"
+      }
+    ]
+  }
+}

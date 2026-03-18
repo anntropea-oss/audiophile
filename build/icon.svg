@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#0b0b0b"/>
+  <g opacity="0.2">
+    <rect x="0" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="80" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="160" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="240" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="320" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="400" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="480" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="560" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="640" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="720" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="800" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="880" y="0" width="40" height="1024" fill="#1a1a1a"/>
+    <rect x="960" y="0" width="40" height="1024" fill="#1a1a1a"/>
+  </g>
+  <polygon points="160,120 440,120 340,420 600,420 260,900 360,560 140,560" fill="#e31b2d"/>
+  <polyline points="560,260 640,180 700,360 760,220 820,420 900,300" fill="none" stroke="#f2f2f2" stroke-width="52" stroke-linejoin="miter"/>
+  <g fill="#f6f1e7">
+    <rect x="640" y="600" width="56" height="300"/>
+    <rect x="720" y="540" width="56" height="360"/>
+    <rect x="800" y="660" width="56" height="240"/>
+    <rect x="880" y="520" width="56" height="380"/>
+  </g>
+</svg>
