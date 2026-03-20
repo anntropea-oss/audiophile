@@ -38,16 +38,26 @@ sudo apt install ./AudioPhile-<version>.deb
 
 3. Launch from your applications menu.
 
-## Linux (Arch-based)
+## Linux (Arch-based) — Download Workflow
 
-Recommended: use the AppImage build.
+### AppImage (recommended)
+
+1. Download `AudioPhile-<version>.AppImage`
+2. Make it executable:
 
 ```bash
 chmod +x AudioPhile-<version>.AppImage
+```
+
+3. Run it:
+
+```bash
 ./AudioPhile-<version>.AppImage
 ```
 
-If you package a `.pkg.tar.zst`, install it with:
+### Pacman package (optional)
+
+If you distribute a `.pkg.tar.zst`:
 
 ```bash
 sudo pacman -U ./AudioPhile-<version>-x86_64.pkg.tar.zst
