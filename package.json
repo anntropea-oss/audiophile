@@ -1,6 +1,10 @@
 {
   "name": "audiophile",
   "version": "1.0.0",
+  "author": {
+    "name": "Ann Tropea",
+    "email": "anntropea-oss@users.noreply.github.com"
+  },
   "type": "module",
   "private": true,
   "main": "electron-main.js",
@@ -47,7 +51,8 @@
         "deb"
       ],
       "category": "Audio",
-      "icon": "build/icon.png"
+      "icon": "build/icon.png",
+      "maintainer": "Ann Tropea <anntropea-oss@users.noreply.github.com>"
     },
     "publish": [
       {
