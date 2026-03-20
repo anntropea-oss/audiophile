@@ -143,7 +143,7 @@ static gpointer process_thread(gpointer data) {
   AppState *app = data;
   CURL *curl = curl_easy_init();
   if (!curl) {
-    g_idle_add((GSourceFunc)set_status, app);
+    /* g_idle_add((GSourceFunc)set_status, app); */
     return NULL;
   }
 
