@@ -102,6 +102,22 @@ flatpak-builder --user --install --force-clean build-dir flatpak/org.audiophile.
 The GTK app currently connects to the existing Node/FFmpeg server at
 `http://localhost:8080`, so start the backend before launching the GUI.
 
+### Flatpak download workflow
+
+If you publish a Flatpak bundle, build and export it like this:
+
+```bash
+flatpak-builder --user --force-clean build-dir flatpak/org.audiophile.AudioPhile.json
+flatpak build-bundle build-dir AudioPhile.flatpak com.audiophile.AudioPhile
+```
+
+Then upload `AudioPhile.flatpak` to your download host and users can install:
+
+```bash
+flatpak install --user AudioPhile.flatpak
+flatpak run com.audiophile.AudioPhile
+```
+
 Share these files via your download host, and optionally publish a simple install guide:
 
 ```bash
