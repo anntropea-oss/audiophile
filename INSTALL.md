@@ -37,3 +37,18 @@ sudo apt install ./AudioPhile-<version>.deb
 ```
 
 3. Launch from your applications menu.
+
+## Linux (Arch-based)
+
+Recommended: use the AppImage build.
+
+```bash
+chmod +x AudioPhile-<version>.AppImage
+./AudioPhile-<version>.AppImage
+```
+
+If you package a `.pkg.tar.zst`, install it with:
+
+```bash
+sudo pacman -U ./AudioPhile-<version>-x86_64.pkg.tar.zst
+```
