@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+APPIMAGE="/opt/AudioPhile/AudioPhile.AppImage"
+ARGS=()
+
+if [[ -n "${WAYLAND_DISPLAY:-}" || "${XDG_SESSION_TYPE:-}" == "wayland" ]]; then
+  export ELECTRON_OZONE_PLATFORM_HINT=wayland
+  ARGS+=(--ozone-platform=wayland --enable-features=WaylandWindowDecorations)
+fi
+
+exec "${APPIMAGE}" "${ARGS[@]}" "$@"

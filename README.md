@@ -83,6 +83,11 @@ You can also build Linux artifacts automatically via GitHub Actions.
 See `.github/workflows/build-linux.yml`. It runs on tag pushes (e.g., `v1.0.1`)
 or can be started manually from the Actions tab.
 
+### Arch + Hyprland
+
+See `packaging/arch/` for a PKGBUILD that wraps the AppImage and a Hyprland-ready
+launcher script. The install guide includes Wayland flags for best performance.
+
 Share these files via your download host, and optionally publish a simple install guide:
 
 ```bash

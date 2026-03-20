@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=AudioPhile
+Comment=Batch master audio for broadcast-ready delivery
+Exec=/usr/bin/audiophile
+Icon=audiophile
+Terminal=false
+Categories=AudioVideo;Audio;Utility;

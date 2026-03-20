@@ -1,0 +1,24 @@
+pkgname=audiophile-bin
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="AudioPhile desktop app (AppImage wrapper)"
+arch=('x86_64')
+url="https://github.com/anntropea-oss/audiophile"
+license=('custom')
+depends=('glibc' 'gtk3' 'nss' 'libxkbcommon' 'libnotify')
+provides=('audiophile')
+conflicts=('audiophile')
+source=(
+  "https://github.com/anntropea-oss/audiophile/releases/download/v${pkgver}/AudioPhile-${pkgver}.AppImage"
+  "audiophile"
+  "audiophile.desktop"
+  "audiophile.png"
+)
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
+
+package() {
+  install -Dm755 "AudioPhile-${pkgver}.AppImage" "${pkgdir}/opt/AudioPhile/AudioPhile.AppImage"
+  install -Dm755 "audiophile" "${pkgdir}/usr/bin/audiophile"
+  install -Dm644 "audiophile.desktop" "${pkgdir}/usr/share/applications/audiophile.desktop"
+  install -Dm644 "audiophile.png" "${pkgdir}/usr/share/pixmaps/audiophile.png"
+}

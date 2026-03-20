@@ -9,6 +9,14 @@ import { createApp } from "./server.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const isWaylandSession =
+  process.env.XDG_SESSION_TYPE === "wayland" || Boolean(process.env.WAYLAND_DISPLAY);
+
+if (isWaylandSession) {
+  app.commandLine.appendSwitch("enable-features", "WaylandWindowDecorations,UseOzonePlatform");
+  app.commandLine.appendSwitch("ozone-platform", "wayland");
+}
+
 let mainWindow;
 let serverInstance;
 let dataDir;

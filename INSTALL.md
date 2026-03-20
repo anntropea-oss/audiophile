@@ -55,6 +55,14 @@ chmod +x AudioPhile-<version>.AppImage
 ./AudioPhile-<version>.AppImage
 ```
 
+### Hyprland/Wayland performance flags
+
+If you see rendering glitches under Hyprland, run:
+
+```bash
+ELECTRON_OZONE_PLATFORM_HINT=wayland ./AudioPhile-<version>.AppImage --ozone-platform=wayland --enable-features=WaylandWindowDecorations
+```
+
 ### Pacman package (optional)
 
 If you distribute a `.pkg.tar.zst`:
