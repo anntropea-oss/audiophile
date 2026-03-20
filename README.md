@@ -88,6 +88,20 @@ or can be started manually from the Actions tab.
 See `packaging/arch/` for a PKGBUILD that wraps the AppImage and a Hyprland-ready
 launcher script. The install guide includes Wayland flags for best performance.
 
+## GTK + Flatpak (C)
+
+A native GTK frontend is available in `gtk-app/`, and a Flatpak manifest lives in
+`flatpak/org.audiophile.AudioPhile.json`.
+
+Build locally on Linux:
+
+```bash
+flatpak-builder --user --install --force-clean build-dir flatpak/org.audiophile.AudioPhile.json
+```
+
+The GTK app currently connects to the existing Node/FFmpeg server at
+`http://localhost:8080`, so start the backend before launching the GUI.
+
 Share these files via your download host, and optionally publish a simple install guide:
 
 ```bash

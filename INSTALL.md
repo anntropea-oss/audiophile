@@ -70,3 +70,14 @@ If you distribute a `.pkg.tar.zst`:
 ```bash
 sudo pacman -U ./AudioPhile-<version>-x86_64.pkg.tar.zst
 ```
+
+## Linux (Flatpak)
+
+If you build the GTK frontend:
+
+```bash
+flatpak-builder --user --install --force-clean build-dir flatpak/org.audiophile.AudioPhile.json
+```
+
+The GTK app connects to the Node/FFmpeg backend at `http://localhost:8080`.
+Start the server (`npm start`) before launching the GUI.
