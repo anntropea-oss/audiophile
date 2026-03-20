@@ -2,6 +2,10 @@
 
 Batch normalize and master raw audio in the browser with optional MP3 export.
 
+## Install guide
+
+See [INSTALL.md](/Users/atropea/coding/audio_suite/INSTALL.md) for macOS and Linux install steps.
+
 ## Local server
 
 Requires `ffmpeg` installed locally. On macOS: `brew install ffmpeg`.
