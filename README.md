@@ -62,6 +62,32 @@ The signed, notarized DMG will be in `dist/`.
 
 See [deploy/README.md](/Users/atropea/coding/audio_suite/deploy/README.md) for a step-by-step VPS setup using Docker Compose.
 
+## Linux download workflow
+
+Build Linux installers (AppImage + deb) on a Linux machine or CI:
+
+```bash
+npm install
+npm run dist -- --linux
+```
+
+Outputs will be in `dist/`, for example:
+- `AudioPhile-<version>.AppImage`
+- `AudioPhile-<version>.deb`
+
+Share these files via your download host, and optionally publish a simple install guide:
+
+```bash
+chmod +x AudioPhile-<version>.AppImage
+./AudioPhile-<version>.AppImage
+```
+
+For Debian/Ubuntu:
+
+```bash
+sudo apt install ./AudioPhile-<version>.deb
+```
+
 ## DMG auto-updates (recommended)
 
 This project is configured for `electron-updater` using a generic HTTP feed.
