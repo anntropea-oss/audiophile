@@ -79,6 +79,10 @@ Outputs will be in `dist/`, for example:
 - `AudioPhile-<version>.AppImage`
 - `AudioPhile-<version>.deb`
 
+You can also build Linux artifacts automatically via GitHub Actions.
+See `.github/workflows/build-linux.yml`. It runs on tag pushes (e.g., `v1.0.1`)
+or can be started manually from the Actions tab.
+
 Share these files via your download host, and optionally publish a simple install guide:
 
 ```bash
