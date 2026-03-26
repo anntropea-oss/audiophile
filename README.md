@@ -4,7 +4,7 @@ Batch normalize and master raw audio in the browser with optional MP3 export.
 
 ## Install guide
 
-See [INSTALL.md](/Users/atropea/coding/audio_suite/INSTALL.md) for macOS and Linux install steps.
+See [INSTALL.md](INSTALL.md) for macOS and Linux install steps.
 
 ## Local server
 
@@ -64,7 +64,7 @@ The signed, notarized DMG will be in `dist/`.
 
 ## Hosted server (VPS)
 
-See [deploy/README.md](/Users/atropea/coding/audio_suite/deploy/README.md) for a step-by-step VPS setup using Docker Compose.
+See [deploy/README.md](deploy/README.md) for a step-by-step VPS setup using Docker Compose.
 
 ## Linux download workflow
 
