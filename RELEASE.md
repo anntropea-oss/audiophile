@@ -18,6 +18,16 @@
 ## Installation
 See [INSTALL.md](INSTALL.md).
 
+## macOS quick install
+
+1. Download the latest DMG from the [AudioPhile macOS release page](https://github.com/anntropea-oss/audiophile/releases/latest).
+2. Open the `.dmg` file.
+3. Drag **AudioPhile** into **Applications**.
+4. Launch **AudioPhile** from **Applications**.
+
+If macOS blocks the first launch, right‑click the app → **Open** → **Open**,
+or go to **System Settings → Privacy & Security** and click **Open Anyway**.
+
 ## Notes
 - macOS builds are unsigned unless you complete Apple code signing.
 - For Linux, prefer AppImage for portable usage or .deb for system install.

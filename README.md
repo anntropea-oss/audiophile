@@ -6,6 +6,16 @@ Batch normalize and master raw audio in the browser with optional MP3 export.
 
 See [INSTALL.md](INSTALL.md) for macOS and Linux install steps.
 
+## macOS quick install
+
+1. Download the latest DMG from the [AudioPhile macOS release page](https://github.com/anntropea-oss/audiophile/releases/latest).
+2. Open the `.dmg` file.
+3. Drag **AudioPhile** into **Applications**.
+4. Launch **AudioPhile** from **Applications**.
+
+If macOS blocks the first launch, right‑click the app → **Open** → **Open**,
+or go to **System Settings → Privacy & Security** and click **Open Anyway**.
+
 ## Local server
 
 Requires `ffmpeg` installed locally. On macOS: `brew install ffmpeg`.
