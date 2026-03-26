@@ -16,7 +16,7 @@
 - Linux: `AudioPhile-1.0.0.AppImage`, `AudioPhile-1.0.0.deb`
 
 ## Installation
-See [INSTALL.md](/Users/atropea/coding/audio_suite/INSTALL.md).
+See [INSTALL.md](INSTALL.md).
 
 ## Notes
 - macOS builds are unsigned unless you complete Apple code signing.
