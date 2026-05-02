@@ -8,7 +8,8 @@ Download the latest release here:
 - https://github.com/anntropea-oss/audiophile/releases/latest
 
 ### macOS
-1. Download the `.dmg` file.
+1. Open the release page and scroll to **Assets**.
+2. Download the file that ends in `.dmg` (example: `AudioPhile-1.0.0-arm64.dmg`).
 2. Open it, then drag **AudioPhile** into **Applications**.
 3. Open **Applications** and launch **AudioPhile**.
 
