@@ -1,61 +1,41 @@
 # AudioPhile Install Guide
 
-This guide covers installing the desktop app on macOS and Linux.
+This guide is written for non-technical users first. Use the “Advanced” section only if you need it.
 
-## macOS (DMG)
+## Quick Install (Recommended)
 
-1. Download `AudioPhile-<version>-arm64.dmg`.
-2. Open the DMG and drag **AudioPhile** into **Applications**.
-3. Launch **AudioPhile** from **Applications**.
+Download the latest release here:
+- https://github.com/anntropea-oss/audiophile/releases/latest
+
+### macOS
+1. Download the `.dmg` file.
+2. Open it, then drag **AudioPhile** into **Applications**.
+3. Open **Applications** and launch **AudioPhile**.
 
 If macOS blocks the first launch:
-- Right-click the app → **Open** → **Open**.
-- Or go to **System Settings → Privacy & Security** and click **Open Anyway**.
+- Right-click **AudioPhile** → **Open** → **Open**.
 
-## Linux (AppImage)
+### Linux (works on most distros)
+1. Download the `.AppImage` file.
+2. Right-click it → **Properties** → enable **Executable** (wording varies by file manager).
+3. Double-click to run.
 
-1. Download `AudioPhile-<version>.AppImage`.
-2. Make it executable:
-
+If your file manager does not have an “Executable” toggle, use Terminal:
 ```bash
 chmod +x AudioPhile-<version>.AppImage
-```
-
-3. Run it:
-
-```bash
 ./AudioPhile-<version>.AppImage
 ```
 
-## Linux (Debian/Ubuntu .deb)
+## Advanced (Optional)
 
-1. Download `AudioPhile-<version>.deb`.
-2. Install:
+### Debian/Ubuntu (.deb)
 
+Download the `.deb`, then install with:
 ```bash
 sudo apt install ./AudioPhile-<version>.deb
 ```
 
-3. Launch from your applications menu.
-
-## Linux (Arch-based) — Download Workflow
-
-### AppImage (recommended)
-
-1. Download `AudioPhile-<version>.AppImage`
-2. Make it executable:
-
-```bash
-chmod +x AudioPhile-<version>.AppImage
-```
-
-3. Run it:
-
-```bash
-./AudioPhile-<version>.AppImage
-```
-
-### Hyprland/Wayland performance flags
+### Arch/Hyprland (Wayland flags)
 
 If you see rendering glitches under Hyprland, run:
 
@@ -63,15 +43,7 @@ If you see rendering glitches under Hyprland, run:
 ELECTRON_OZONE_PLATFORM_HINT=wayland ./AudioPhile-<version>.AppImage --ozone-platform=wayland --enable-features=WaylandWindowDecorations
 ```
 
-### Pacman package (optional)
-
-If you distribute a `.pkg.tar.zst`:
-
-```bash
-sudo pacman -U ./AudioPhile-<version>-x86_64.pkg.tar.zst
-```
-
-## Linux (Flatpak)
+### Flatpak (GTK frontend, developers)
 
 If you build the GTK frontend:
 
